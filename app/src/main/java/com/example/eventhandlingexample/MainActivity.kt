@@ -6,6 +6,7 @@ import android.os.PersistableBundle
 import android.view.View
 import android.view.ViewStructure
 import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -16,19 +17,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnDisplayMessage.setOnClickListener {
-            Toast.makeText(
-                applicationContext,
-                "Hello World",
-                Toast.LENGTH_LONG
-            ).show()
-        }
-        btnDisplayMessage.setOnLongClickListener(object : View.OnLongClickListener {
-            override fun onLongClick(v: View?): Boolean {
-                return true
-            }
+            Toast.makeText(applicationContext, "Hello World",
+            Toast.LENGTH_LONG).show()
 
-        })
+        }
+        btnDisplayMessage.setOnLongClickListener{
+            Snackbar.make(root_layout,"Long click",
+            Snackbar.LENGTH_LONG) .show()
+            true
+        }
+
 
 
     }
 }
+
